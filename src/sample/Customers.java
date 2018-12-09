@@ -16,13 +16,23 @@ public class Customers implements Serializable {
         dataBaseCustomers.add(customer);
     }
 
-    public void deleteCustomer(String firstName, String lastName, String phoneNumber, String address) {
+    public boolean deleteCustomer(String firstName, String lastName, String phoneNumber, String address) {
         Customer customer = new Customer(firstName, lastName, phoneNumber, address);
+        boolean result = false;
+
         for (int i = 0; i < dataBaseCustomers.size(); i++){
             if (dataBaseCustomers.get(i).equals(customer)) {
                 dataBaseCustomers.remove(i);
+                result = true;
                 break;
             }
+        }
+        return result;
+    }
+
+    public void displayAllCustomers () {
+        for (Customer customer: dataBaseCustomers) {
+            System.out.println(customer);
         }
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="deleteMedicinePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ScrollBar layoutX="686.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="14.0" />
+      <TableView prefHeight="500.0" prefWidth="686.0">
+        <columns>
+          <TableColumn fx:id="tableName" prefWidth="104.00000154972076" text="Name" />
+          <TableColumn fx:id="tableCompany" prefWidth="100.79998016357422" text="Company" />
+            <TableColumn fx:id="tableUnitPrice" prefWidth="66.39996337890625" text="Unit price" />
+            <TableColumn fx:id="tableInPackage" prefWidth="121.5999755859375" text="Quantity in package" />
+            <TableColumn fx:id="tablePharmacyNumber" minWidth="3.20001220703125" prefWidth="110.39996337890625" text="Pharmacy number" />
+            <TableColumn fx:id="tableShelfLife" minWidth="4.0" prefWidth="66.39999389648438" text="Shelf Life" />
+            <TableColumn fx:id="tableDate" minWidth="4.0" prefWidth="112.79998779296875" text="Date of delivery" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
