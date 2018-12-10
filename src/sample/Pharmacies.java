@@ -5,13 +5,14 @@ package sample;
  */
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Pharmacies implements Serializable {
-    private ArrayList<Pharmacy> dataBase = new ArrayList<>();
+    public ArrayList<Pharmacy> dataBase = new ArrayList<>();
 
 //    Pharmacy first = new Pharmacy("Nimesil", "Laboratorios Menarini S.A.",
 //            10.99,30, 1, 3, "2017/10/10");
@@ -34,13 +35,15 @@ public class Pharmacies implements Serializable {
         }
     }
 
+    //TODO fix date compare
     public void deleteAllExpiredDrugs () {
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         ParsePosition parsePosition = new ParsePosition(0);
+        Date expired;
 
         for (int i = 0; i < dataBase.size();  i++) {
-            Date expired = dateFormat.parse(dataBase.get(i).getDate(), parsePosition);
+            expired = dateFormat.parse(dataBase.get(i).getDateOfDelivery(), parsePosition);
             if (todayDate.compareTo(expired) >= dataBase.get(i).getShelfLife()) {
                 dataBase.remove(i);
                 break;

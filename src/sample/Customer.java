@@ -11,23 +11,12 @@ public class Customer implements Serializable {
     private String lastName;
     private String phoneNumber;
     private String address;
-    private Pharmacies pharmacies;
 
     public Customer(String firstName, String lastName, String phoneNumber, String address) {
         setFirstName(firstName);
         setLastName(lastName);
         setPhoneNumber(phoneNumber);
         this.address = address;
-        pharmacies = new Pharmacies();
-    }
-
-    public void addDrug(String drugName, String company, double unitPrice, int inPackage,
-                        int pharmacyNumber, int shelfLife, String date) {
-        pharmacies.addInBase(drugName, company, unitPrice, inPackage, pharmacyNumber, shelfLife, date);
-    }
-
-    public void deleteDrug(String drugName, int pharmacyNumber) {
-        pharmacies.removeDrug(drugName, pharmacyNumber);
     }
 
     @Override
@@ -70,14 +59,6 @@ public class Customer implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Pharmacies getPharmacies() {
-        return pharmacies;
-    }
-
-    public void setPharmacies(Pharmacies pharmacies) {
-        this.pharmacies = pharmacies;
     }
 
     private boolean isNumeric(String strNum) {

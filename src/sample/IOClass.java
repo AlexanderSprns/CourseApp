@@ -1,16 +1,17 @@
 package sample;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class IOClass {
 
-    public boolean saveObject(Object object, String filename) {
+    public IOClass() {
+    }
+
+    public boolean saveFile(Object object, String filename) {
         boolean result = true;
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename)))
+        try
         {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename));
             oos.flush();
             oos.writeObject(object);
             oos.close();
@@ -22,16 +23,22 @@ public class IOClass {
         return result;
     }
 
-    public Object readObject (String filename){
-
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename)))
+    public Object readFile(String filename){
+        Object object1 = new Object();
+        try
         {
-            Object object1 =((Object)ois.readObject());
-            return object1;
+            //TODO create a new empty file
+//            File file = new File(filename); //throws exception after closing the application creates new file
+//            if(!file.exists()) // if file already exists will do nothing
+//                file.createNewFile();
+
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename));
+            object1 = ois.readObject();
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
-            return false;
+
         }
+        return object1;
     }
 }

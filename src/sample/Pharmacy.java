@@ -24,7 +24,7 @@ public class Pharmacy implements Serializable {
         setInPackage(inPackage);
         setPharmacyNumber(pharmacyNumber);
         setShelfLife(shelfLife);
-        setDate(date);
+        setDateOfDelivery(date);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Pharmacy implements Serializable {
                 ", inPackage: " + inPackage + "pcs." +
                 ", pharmacyNumber: " + pharmacyNumber +
                 ", shelfLife: " + shelfLife + "years" +
-                ", date: " + getDate() +
+                ", date: " + getDateOfDelivery() +
                 '}';
     }
 
@@ -87,12 +87,19 @@ public class Pharmacy implements Serializable {
         this.shelfLife = shelfLife <= 0 ? -1 : shelfLife;
     }
 
-    public String getDate() {
+    public String getDateOfDelivery() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         return df.format(dateOfDelivery);
     }
 
-    public void setDate(String date) {
-        this.dateOfDelivery = new Date(date);
+    public void setDateOfDelivery(String date) {
+        try {
+            this.dateOfDelivery = new Date(date);
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace();
+        }
+
     }
 }

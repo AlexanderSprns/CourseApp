@@ -1,8 +1,6 @@
 package sample;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,17 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import static sample.Main.customersDatabase;
+import static sample.Main.database;
 
 public class Controller {
 
     // Main menu
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button addDrugsMainMenu;
@@ -52,44 +47,6 @@ public class Controller {
     @FXML
     private Button saveChanges;
 
-    // Add medicine
-    @FXML
-    private Button addMedicineBtn;
-
-    @FXML
-    private TextField medicineName;
-
-    @FXML
-    private TextField company;
-
-    @FXML
-    private TextField unitPrice;
-
-    @FXML
-    private TextField inPackage;
-
-    @FXML
-    private TextField pharmacyNumber;
-
-    @FXML
-    private TextField shelfLife;
-
-    @FXML
-    private TextField dateOfDelivery;
-
-    //Delete medicine
-
-    @FXML
-    private Button deleteMedicine;
-
-    @FXML
-    private TextField medicineNameDel;
-
-    @FXML
-    private TextField pharmacyNumberDel;
-
-
-    private Pharmacies database = new Pharmacies();
 
     @FXML
     void initialize() {
@@ -111,25 +68,103 @@ public class Controller {
              }
         });
 
-//        displayAll.setOnAction(event -> {
-//            try{
-//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayAllMed.fxml"));
-//                Parent root1 = (Parent) fxmlLoader.load();
-//                Stage stage = new Stage();
-//                stage.setTitle("All medicine");
-//                stage.setScene(new Scene(root1));
-//                stage.show();
-//            }catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//
-//        });
+        displayAll.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayAllMed.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("All medicine");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
-//        addMedicine.setOnAction(event -> {
-//            database.addInBase(medicineName.getText(), company.getText(), Double.parseDouble(unitPrice.getText()),
-//                    Integer.parseInt(inPackage.getText()),
-//                    Integer.parseInt(pharmacyNumber.getText()), Integer.parseInt(shelfLife.getText()), dateOfDelivery.getText());
-//        });
+        deleteDrug.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("deleteMedicine.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Delete medicine");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
+        displayInPackageMoreThan100.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayPackageMoreThan100.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Medicine in a package of more than 100");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        displayByPharmacyNumber.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayByPharmNumber.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Finding a pharmacy by number");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        addCustomer.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Adding customer");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        deleteCustomer.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("deleteCustomer.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Deleting customer");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        displayCustomers.setOnAction(event -> {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayAllCustomers.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.setTitle("All customers");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        saveChanges.setOnAction(event -> {
+            IOClass write = new IOClass();
+            write.saveFile(database, "database.data");
+
+            IOClass writeCustomers = new IOClass();
+            writeCustomers.saveFile(customersDatabase, "customersDatabase.data");
+        });
     }
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddMedController">
    <children>
       <TextField fx:id="medicineName" layoutX="147.0" layoutY="94.0" />
       <Label layoutX="252.0" layoutY="14.0" text="Add medicine">
@@ -26,7 +26,7 @@
          </font>
       </Label>
       <TextField fx:id="unitPrice" layoutX="147.0" layoutY="177.0" />
-      <Label layoutX="29.0" layoutY="177.0" prefHeight="26.0" prefWidth="99.0" text="Unt price">
+      <Label layoutX="29.0" layoutY="177.0" prefHeight="26.0" prefWidth="99.0" text="Unit price">
          <font>
             <Font size="14.0" />
          </font>
