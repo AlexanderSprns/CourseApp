@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     public static Pharmacies database = readPharmacy();
-    public static Customers customersDatabase = new Customers();
+    public static Customers customersDatabase = readCustomers();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -26,13 +26,13 @@ public class Main extends Application {
         data = (Pharmacies) read.readFile("database.data");
         return data;
     }
-    //TODO file read
-//    public static Customers readCustomers() {
-//        IOClass read = new IOClass();
-//        Customers custData;
-//        custData = (Customers) read.readFile("customersDatabase.data");
-//        return custData;
-//    }
+
+    public static Customers readCustomers() {
+        IOClass read = new IOClass();
+        Customers customersData;
+        customersData = (Customers) read.readFile("customersDatabase.data");
+        return customersData;
+    }
 
     public static void main(String[] args) {
         launch(args);
