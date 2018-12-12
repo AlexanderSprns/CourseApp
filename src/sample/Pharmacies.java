@@ -9,13 +9,17 @@ import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 public class Pharmacies implements Serializable {
     public ArrayList<Pharmacy> dataBase = new ArrayList<>();
 
-//    Pharmacy first = new Pharmacy("Nimesil", "Laboratorios Menarini S.A.",
-//            10.99,30, 1, 3, "2017/10/10");
 
     public Pharmacies() {
     }
@@ -41,10 +45,12 @@ public class Pharmacies implements Serializable {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         ParsePosition parsePosition = new ParsePosition(0);
         Date expired;
+        int diff = 0;
 
         for (int i = 0; i < dataBase.size();  i++) {
             expired = dateFormat.parse(dataBase.get(i).getDateOfDelivery(), parsePosition);
-            if (todayDate.compareTo(expired) >= dataBase.get(i).getShelfLife()) {
+            diff = getDiffYear(todayDate, expired);
+            if (diff >= dataBase.get(i).getShelfLife()) {
                 dataBase.remove(i);
                 break;
             }
@@ -71,6 +77,27 @@ public class Pharmacies implements Serializable {
             System.out.println(pharmacy);
         }
     }
+
+    private int getDiffYear(Date todayDate, Date expired) {
+
+        Calendar a = getCalendar(expired);
+        Calendar b = getCalendar(todayDate);
+        int diff = b.get(YEAR) - a.get(YEAR);
+
+        if (a.get(MONTH) > b.get(MONTH)
+                || (a.get(MONTH) == b.get(MONTH) && a.get(DATE) > b.get(DATE))) {
+            diff--;
+        }
+
+        return diff;
+    }
+
+    private Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.US);
+        cal.setTime(date);
+        return cal;
+    }
+
 
     public ArrayList<Pharmacy> getDataBase() {
         return dataBase;
