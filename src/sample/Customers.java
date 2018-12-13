@@ -25,7 +25,6 @@ public class Customers implements Serializable {
                     databaseCustomers.get(i).getLastName().equals(customer.getLastName())) {
                 databaseCustomers.remove(i);
                 result = true;
-                break;
             }
         }
         return result;

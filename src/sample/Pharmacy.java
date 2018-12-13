@@ -1,7 +1,7 @@
 package sample;
 
 /**
- * Class that describes the drug
+ * Class that describes the medicine
  */
 
 import java.io.Serializable;

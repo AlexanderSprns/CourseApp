@@ -44,32 +44,42 @@ public class DisplayByPharmNumber {
     @FXML
     private TextField numberField;
 
-    ObservableList<Pharmacy> list = FXCollections.observableArrayList();
+    private ObservableList<Pharmacy> list = FXCollections.observableArrayList();
 
-    public void initialize()
-    {
-        findBtn.setOnAction(event -> findPharmByNumber());
+    public void initialize() {
+            findBtn.setOnAction(event -> findPharmByNumber());
     }
 
     private void findPharmByNumber () {
-        ArrayList<Pharmacy> pharmacyArrayList = database.getDataBase();
+        if(!numberField.getText().equals("") && isNumeric(numberField.getText())) {
+            ArrayList<Pharmacy> pharmacyArrayList = database.getDataBase();
 
-        int number = Integer.parseInt(numberField.getText());
+            int number = Integer.parseInt(numberField.getText());
 
-        for (Pharmacy pharmacy: pharmacyArrayList) {
-            if (pharmacy.getPharmacyNumber() == number) {
-                list.add(pharmacy);
+            for (Pharmacy pharmacy : pharmacyArrayList) {
+                if (pharmacy.getPharmacyNumber() == number) {
+                    list.add(pharmacy);
+                }
             }
+
+            tableName.setCellValueFactory(new PropertyValueFactory<>("drugName"));
+            tableCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
+            tableUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+            tableInPackage.setCellValueFactory(new PropertyValueFactory<>("inPackage"));
+            tablePharmacyNumber.setCellValueFactory(new PropertyValueFactory<>("pharmacyNumber"));
+            tableShelfLife.setCellValueFactory(new PropertyValueFactory<>("shelfLife"));
+            tableDate.setCellValueFactory(new PropertyValueFactory<>("dateOfDelivery"));
+
+            pharmacyNumberTable.setItems(list);
         }
+    }
 
-        tableName.setCellValueFactory(new PropertyValueFactory<>("drugName"));
-        tableCompany.setCellValueFactory(new PropertyValueFactory<>("company"));
-        tableUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        tableInPackage.setCellValueFactory(new PropertyValueFactory<>("inPackage"));
-        tablePharmacyNumber.setCellValueFactory(new PropertyValueFactory<>("pharmacyNumber"));
-        tableShelfLife.setCellValueFactory(new PropertyValueFactory<>("shelfLife"));
-        tableDate.setCellValueFactory(new PropertyValueFactory<>("dateOfDelivery"));
-
-        pharmacyNumberTable.setItems(list);
+    private boolean isNumeric(String strNum) {
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
     }
 }

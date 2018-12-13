@@ -14,7 +14,7 @@
             <TableColumn fx:id="tableInPackage" prefWidth="121.5999755859375" text="Quantity in package" />
             <TableColumn fx:id="tablePharmacyNumber" minWidth="3.20001220703125" prefWidth="110.39996337890625" text="Pharmacy number" />
             <TableColumn fx:id="tableShelfLife" minWidth="4.0" prefWidth="66.39999389648438" text="Shelf Life" />
-            <TableColumn fx:id="tableDate" minWidth="4.0" prefWidth="112.79998779296875" text="Date of delivery" />
+            <TableColumn fx:id="tableDate" minWidth="4.0" prefWidth="128.00006103515625" text="Date of manufacture" />
         </columns>
       </TableView>
    </children>

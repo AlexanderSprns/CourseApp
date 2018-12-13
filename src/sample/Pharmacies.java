@@ -1,21 +1,12 @@
 package sample;
 
 /**
- * Class that describes an arraylist of drugs
+ * Class that describes an array list of medicines
  */
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
-
-import static java.util.Calendar.DATE;
-import static java.util.Calendar.MONTH;
-import static java.util.Calendar.YEAR;
 
 public class Pharmacies implements Serializable {
     public ArrayList<Pharmacy> dataBase = new ArrayList<>();
@@ -39,20 +30,17 @@ public class Pharmacies implements Serializable {
         }
     }
 
-    //TODO fix date compare
     public void deleteAllExpiredDrugs () {
         Date todayDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        ParsePosition parsePosition = new ParsePosition(0);
         Date expired;
-        int diff = 0;
+        int diff;
 
-        for (int i = 0; i < dataBase.size()-1;  i++) {
-            expired = dateFormat.parse(dataBase.get(i).getDateOfDelivery(), parsePosition);
-            diff = getDiffYear(todayDate, expired);
+        for (int i = 0; i < dataBase.size();  i++) {
+            expired = new Date(dataBase.get(i).getDateOfDelivery());
+            diff = todayDate.getYear() - expired.getYear();
+
             if (diff >= dataBase.get(i).getShelfLife()) {
                 dataBase.remove(i);
-                break;
             }
         }
     }
@@ -64,6 +52,7 @@ public class Pharmacies implements Serializable {
             }
         }
     }
+
     public void displayPharmacyByNumber (int storeNumber) {
         for (Pharmacy pharmacy: dataBase) {
             if (storeNumber == pharmacy.getPharmacyNumber()) {
@@ -77,28 +66,6 @@ public class Pharmacies implements Serializable {
             System.out.println(pharmacy);
         }
     }
-
-    private int getDiffYear(Date todayDate, Date expired) {
-
-        Calendar a = getCalendar(expired);
-        Calendar b = getCalendar(todayDate);
-        int diff = b.get(YEAR) - a.get(YEAR);
-
-        if (a.get(MONTH) > b.get(MONTH)
-                || (a.get(MONTH) == b.get(MONTH) && a.get(DATE) > b.get(DATE))) {
-            diff--;
-        }
-
-        return diff;
-    }
-
-    private Calendar getCalendar(Date date) {
-        Calendar cal = Calendar.getInstance();
-        long time = date.getTime();
-        cal.setTimeInMillis(time);
-        return cal;
-    }
-
 
     public ArrayList<Pharmacy> getDataBase() {
         return dataBase;

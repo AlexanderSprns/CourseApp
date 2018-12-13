@@ -38,7 +38,7 @@ public class DisplayMedMoreInPackage {
         @FXML
         public TableView<Pharmacy> allMedInPackage;
 
-        ObservableList<Pharmacy> list = FXCollections.observableArrayList();
+    private ObservableList<Pharmacy> list = FXCollections.observableArrayList();
 
         @FXML
         public void initialize ()

@@ -36,16 +36,11 @@ public class DisplayAllMedController {
     @FXML
     public TableView<Pharmacy> allMedTable;
 
-    ObservableList<Pharmacy> list = FXCollections.observableArrayList();
+    private ObservableList<Pharmacy> list = FXCollections.observableArrayList();
 
     public void initialize()
     {
-//        database.addInBase("qqq", "www", Math
-//                .random()*100, 5, 3,4,"2018/10/10");
-//        System.out.println(database.getDataBase().size());
         list.addAll(database.dataBase);
-//        System.out.println(list.get(database.getDataBase().size()-1).toString());
-
 
         tableName.setCellValueFactory(new PropertyValueFactory<>("drugName"));
         tableCompany.setCellValueFactory(new PropertyValueFactory<>("company"));

@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="deleteMed" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DeleteMedController">
    <children>
       <Label layoutX="243.0" layoutY="38.0" text="Delete medicine">
@@ -20,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="pharmNumber" layoutX="355.0" layoutY="200.0" prefHeight="26.0" prefWidth="214.0" />
+      <TextField fx:id="pharmNumber" layoutX="355.0" layoutY="200.0" prefHeight="26.0" prefWidth="214.0" promptText="only numbers are allowed" />
       <Label layoutX="198.0" layoutY="199.0" text="Pharmacy number">
          <font>
             <Font size="18.0" />

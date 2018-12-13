@@ -20,14 +20,14 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static Pharmacies readPharmacy() {
+    private static Pharmacies readPharmacy() {
         IOClass read = new IOClass();
         Pharmacies data;
         data = (Pharmacies) read.readFile("database.data");
         return data;
     }
 
-    public static Customers readCustomers() {
+    private static Customers readCustomers() {
         IOClass read = new IOClass();
         Customers customersData;
         customersData = (Customers) read.readFile("customersDatabase.data");

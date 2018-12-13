@@ -8,49 +8,49 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddMedController">
    <children>
-      <TextField fx:id="medicineName" layoutX="147.0" layoutY="94.0" />
+      <TextField fx:id="medicineName" layoutX="177.0" layoutY="98.0" />
       <Label layoutX="252.0" layoutY="14.0" text="Add medicine">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="94.0" prefHeight="26.0" prefWidth="99.0" text="Medicine name">
+      <Label layoutX="57.0" layoutY="97.0" prefHeight="26.0" prefWidth="99.0" text="Medicine name">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="company" layoutX="147.0" layoutY="137.0" />
-      <Label layoutX="29.0" layoutY="137.0" prefHeight="26.0" prefWidth="99.0" text="Company">
+      <TextField fx:id="company" layoutX="177.0" layoutY="141.0" />
+      <Label layoutX="57.0" layoutY="140.0" prefHeight="26.0" prefWidth="99.0" text="Company">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="unitPrice" layoutX="147.0" layoutY="177.0" />
-      <Label layoutX="29.0" layoutY="177.0" prefHeight="26.0" prefWidth="99.0" text="Unit price">
+      <TextField fx:id="unitPrice" layoutX="177.0" layoutY="181.0" prefHeight="26.0" prefWidth="149.0" promptText="only numbers are allowed" />
+      <Label layoutX="57.0" layoutY="181.0" prefHeight="26.0" prefWidth="99.0" text="Unit price">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="inPackage" layoutX="147.0" layoutY="223.0" />
-      <Label layoutX="29.0" layoutY="213.0" prefHeight="46.0" prefWidth="118.0" text="Quantity in package" wrapText="true">
+      <TextField fx:id="inPackage" layoutX="177.0" layoutY="227.0" promptText="only numbers are allowed" />
+      <Label layoutX="57.0" layoutY="216.0" prefHeight="46.0" prefWidth="99.0" text="Quantity in package" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="pharmacyNumber" layoutX="147.0" layoutY="267.0" />
-      <Label layoutX="29.0" layoutY="267.0" prefHeight="26.0" prefWidth="118.0" text="Pharmacy number">
+      <TextField fx:id="pharmacyNumber" layoutX="177.0" layoutY="271.0" promptText="only numbers are allowed" />
+      <Label layoutX="57.0" layoutY="270.0" prefHeight="26.0" prefWidth="114.0" text="Pharmacy number">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="shelfLife" layoutX="147.0" layoutY="306.0" />
-      <Label layoutX="29.0" layoutY="306.0" prefHeight="26.0" prefWidth="99.0" text="Shelf life">
+      <TextField fx:id="shelfLife" layoutX="177.0" layoutY="310.0" promptText="only numbers are allowed" />
+      <Label layoutX="57.0" layoutY="309.0" prefHeight="26.0" prefWidth="99.0" text="Shelf life">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="dateOfDelivery" layoutX="147.0" layoutY="345.0" />
-      <Label layoutX="29.0" layoutY="345.0" prefHeight="26.0" prefWidth="99.0" text="Date of delivery">
+      <TextField fx:id="dateOfDelivery" layoutX="177.0" layoutY="349.0" promptText="yyyy/mm/dd" />
+      <Label layoutX="38.0" layoutY="348.0" prefHeight="26.0" prefWidth="137.0" text="Date of manufacture">
          <font>
             <Font size="14.0" />
          </font>

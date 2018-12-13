@@ -99,7 +99,7 @@ public class Controller {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayPackageMoreThan100.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
-                stage.setTitle("Medicine in a package of more than 100");
+                stage.setTitle("Medicine in a package more than 100");
                 stage.setScene(new Scene(root1));
                 stage.show();
             }catch (Exception e) {

@@ -27,11 +27,6 @@ public class IOClass {
         Object object1 = new Object();
         try
         {
-            //TODO create a new empty file
-//            File file = new File(filename); //throws exception after closing the application creates new file
-//            if(!file.exists()) // if file already exists will do nothing
-//                file.createNewFile();
-
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename));
             object1 = ois.readObject();
         }

@@ -12,7 +12,7 @@
       <Button fx:id="displayAll" layoutX="106.0" layoutY="237.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Display all medicine database" />
       <Button fx:id="delExpired" layoutX="106.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Delete all expired medicine" />
       <Button fx:id="displayInPackageMoreThan100" layoutX="106.0" layoutY="281.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Display medicine (in package &gt;100)" />
-      <Button fx:id="displayByPharmacyNumber" layoutX="106.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Display medicine in pharmacy" />
+      <Button fx:id="displayByPharmacyNumber" layoutX="106.0" layoutY="324.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Display medicine at the pharmacy" />
       <Button fx:id="addCustomer" layoutX="396.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Add customer" />
       <Button fx:id="deleteCustomer" layoutX="396.0" layoutY="152.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Delete customer" />
       <Button fx:id="displayCustomers" layoutX="396.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="207.0" text="Display all customers" />

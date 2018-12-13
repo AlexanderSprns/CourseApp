@@ -33,7 +33,7 @@ public class AddCustomerController {
     }
 
     @FXML
-    void closeWindow(){
+    private void closeWindow(){
         Stage stage = (Stage) addCustomerBtn.getScene().getWindow();
         stage.close();
     }

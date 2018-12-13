@@ -49,7 +49,7 @@ public class AddMedController {
     }
 
     @FXML
-     void closeWindow(){
+    private void closeWindow(){
         Stage stage = (Stage) addMedicineBtn.getScene().getWindow();
         stage.close();
     }

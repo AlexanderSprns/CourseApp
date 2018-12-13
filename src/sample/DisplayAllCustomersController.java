@@ -25,7 +25,7 @@ public class DisplayAllCustomersController {
     @FXML
     private TableColumn<Customer, String> tableAddress;
 
-    ObservableList<Customer> list = FXCollections.observableArrayList();
+    private ObservableList<Customer> list = FXCollections.observableArrayList();
 
     public void initialize(){
         list.addAll(customersDatabase.databaseCustomers);
