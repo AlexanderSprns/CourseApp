@@ -47,7 +47,7 @@ public class Pharmacies implements Serializable {
         Date expired;
         int diff = 0;
 
-        for (int i = 0; i < dataBase.size();  i++) {
+        for (int i = 0; i < dataBase.size()-1;  i++) {
             expired = dateFormat.parse(dataBase.get(i).getDateOfDelivery(), parsePosition);
             diff = getDiffYear(todayDate, expired);
             if (diff >= dataBase.get(i).getShelfLife()) {
@@ -93,8 +93,9 @@ public class Pharmacies implements Serializable {
     }
 
     private Calendar getCalendar(Date date) {
-        Calendar cal = Calendar.getInstance(Locale.US);
-        cal.setTime(date);
+        Calendar cal = Calendar.getInstance();
+        long time = date.getTime();
+        cal.setTimeInMillis(time);
         return cal;
     }
 

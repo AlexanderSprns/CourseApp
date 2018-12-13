@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import static sample.Main.customersDatabase;
 
-public class DisplayAllCustomers {
+public class DisplayAllCustomersController {
     @FXML
     private TableView<Customer> allCustomersTable;
 
