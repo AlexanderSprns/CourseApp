@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,12 +8,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.Pharmacy;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 import static sample.Main.database;
 
-public class DisplayByPharmNumber {
+public class DisplayByPharmNumberController {
     @FXML
     private TableColumn<Pharmacy, String> tableName;
 

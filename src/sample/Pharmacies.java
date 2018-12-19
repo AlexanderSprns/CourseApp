@@ -45,28 +45,6 @@ public class Pharmacies implements Serializable {
         }
     }
 
-    public void displayInPackageMoreThan100 () {
-        for (Pharmacy pharmacy: dataBase) {
-            if (pharmacy.getInPackage() >= 100) {
-                System.out.println(pharmacy.getDrugName());
-            }
-        }
-    }
-
-    public void displayPharmacyByNumber (int storeNumber) {
-        for (Pharmacy pharmacy: dataBase) {
-            if (storeNumber == pharmacy.getPharmacyNumber()) {
-                System.out.println(pharmacy);
-            }
-        }
-    }
-
-    public void displayAllDrugs () {
-        for (Pharmacy pharmacy: dataBase) {
-            System.out.println(pharmacy);
-        }
-    }
-
     public ArrayList<Pharmacy> getDataBase() {
         return dataBase;
     }

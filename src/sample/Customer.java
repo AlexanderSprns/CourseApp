@@ -34,7 +34,7 @@ public class Customer implements Serializable {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = (firstName.isEmpty() || isNumeric(firstName)) ? "InvalidFirstName" : firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -42,7 +42,7 @@ public class Customer implements Serializable {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = (lastName.isEmpty() || isNumeric(lastName)) ? "InvalidLastName" : lastName;
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
@@ -50,7 +50,7 @@ public class Customer implements Serializable {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = (isNumeric(phoneNumber) && !phoneNumber.isEmpty()) ? phoneNumber : "InvalidPhoneNumber";
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {

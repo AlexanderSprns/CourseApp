@@ -29,15 +29,4 @@ public class Customers implements Serializable {
         }
         return result;
     }
-
-    public void displayAllCustomers () {
-        for (Customer customer: databaseCustomers) {
-            System.out.println(customer);
-        }
-    }
-
-    public ArrayList<Customer> getDatabaseCustomers() {
-        return databaseCustomers;
-    }
-
 }
