@@ -6,11 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
 
     public static Pharmacies database = readPharmacy();
     public static Customers customersDatabase = readCustomers();
+//    public static Pharmacies database = new Pharmacies();
+//    public static Customers customersDatabase = new Customers();
 
     private static Pharmacies readPharmacy() {
         IOClass read = new IOClass();

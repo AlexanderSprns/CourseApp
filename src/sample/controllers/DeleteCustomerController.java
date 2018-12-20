@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Warning;
 
 import static sample.Main.customersDatabase;
 
@@ -20,13 +21,19 @@ public class DeleteCustomerController {
     @FXML
     void initialize(){
         deleteCustomerBtn.setOnAction(event -> {
-            customersDatabase.deleteCustomer(customerFirstName.getText(), customerLastName.getText());
-            closeWindow();
+            if (!customerFirstName.getText().trim().isEmpty() && customerFirstName.getText() != null &&
+                    !customerLastName.getText().trim().isEmpty() && customerLastName.getText() != null &&
+                    customersDatabase.deleteCustomer(customerFirstName.getText().trim(), customerLastName.getText().trim())) {
+                closeWindow();
+            } else {
+                Warning warning = new Warning();
+                warning.alert("This client does not exist in the database");
+            }
         });
     }
 
     @FXML
-    void closeWindow(){
+    private void closeWindow() {
         Stage stage = (Stage) deleteCustomerBtn.getScene().getWindow();
         stage.close();
     }

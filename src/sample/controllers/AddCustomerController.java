@@ -34,9 +34,8 @@ public class AddCustomerController {
                     !phoneNumber.getText().trim().isEmpty() && phoneNumber.getText() != null &&
                     !address.getText().trim().isEmpty() && address.getText() != null &&
                     isNumeric.isNumeric(phoneNumber.getText())) {
-                System.out.println(isNumeric.isNumeric(phoneNumber.getText()));
-                customersDatabase.addCustomer(customerFirstName.getText(), customerLastName.getText(),
-                        phoneNumber.getText(), address.getText());
+                customersDatabase.addCustomer(customerFirstName.getText().trim(), customerLastName.getText().trim(),
+                        phoneNumber.getText().trim(), address.getText().trim());
                 closeWindow();
             } else {
                 Warning warning = new Warning();

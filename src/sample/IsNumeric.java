@@ -10,4 +10,13 @@ public class IsNumeric {
         }
         return true;
     }
+
+    public boolean isNumericInt(String strNum) {
+        try {
+            int d = Integer.parseInt(strNum);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
 }

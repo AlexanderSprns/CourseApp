@@ -24,7 +24,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="deleteMedBtn" layoutX="289.0" layoutY="345.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="122.0" text="Delete">
+       <Button fx:id="deleteMedBtn" layoutX="289.0" layoutY="404.0" mnemonicParsing="false" prefHeight="48.0"
+               prefWidth="122.0" text="Delete">
          <font>
             <Font size="22.0" />
          </font>
