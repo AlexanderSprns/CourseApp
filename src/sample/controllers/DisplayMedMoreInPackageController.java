@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,13 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.Pharmacy;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import static sample.Main.database;
 
-public class DisplayMedMoreInPackage {
+public class DisplayMedMoreInPackageController {
 
         @FXML
         private TableColumn<Pharmacy, String> tableName;

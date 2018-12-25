@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,12 +8,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.IsNumeric;
+import sample.Pharmacy;
+import sample.Warning;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 import static sample.Main.database;
 
-public class DisplayByPharmNumber {
+public class DisplayByPharmNumberController {
     @FXML
     private TableColumn<Pharmacy, String> tableName;
 
@@ -51,11 +55,12 @@ public class DisplayByPharmNumber {
     }
 
     private void findPharmByNumber () {
-        if(!numberField.getText().equals("") && isNumeric(numberField.getText())) {
+        IsNumeric isNumeric = new IsNumeric();
+        if (!numberField.getText().trim().isEmpty() && numberField.getText() != null &&
+                isNumeric.isNumericInt(numberField.getText().trim())) {
+
             ArrayList<Pharmacy> pharmacyArrayList = database.getDataBase();
-
             int number = Integer.parseInt(numberField.getText());
-
             for (Pharmacy pharmacy : pharmacyArrayList) {
                 if (pharmacy.getPharmacyNumber() == number) {
                     list.add(pharmacy);
@@ -71,15 +76,9 @@ public class DisplayByPharmNumber {
             tableDate.setCellValueFactory(new PropertyValueFactory<>("dateOfDelivery"));
 
             pharmacyNumberTable.setItems(list);
+        } else {
+            Warning warning = new Warning();
+            warning.alert("Invalid input");
         }
-    }
-
-    private boolean isNumeric(String strNum) {
-        try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException | NullPointerException nfe) {
-            return false;
-        }
-        return true;
     }
 }

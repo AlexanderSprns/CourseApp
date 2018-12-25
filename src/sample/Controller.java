@@ -1,6 +1,5 @@
 package sample;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import static sample.Main.customersDatabase;
+import java.io.IOException;
+
 import static sample.Main.database;
 
 public class Controller {
@@ -44,8 +44,6 @@ public class Controller {
     @FXML
     private Button displayCustomers;
 
-    @FXML
-    private Button saveChanges;
 
 
     @FXML
@@ -56,7 +54,7 @@ public class Controller {
         addDrugsMainMenu.setOnAction(new EventHandler<>() {
              public void handle(ActionEvent event) {
                  try {
-                     Parent root = FXMLLoader.load(getClass().getResource("addMedicine.fxml"));
+                     Parent root = FXMLLoader.load(getClass().getResource("fxmlFiles/addMedicine.fxml"));
                      Stage stage = new Stage();
                      stage.setTitle("Add medicine");
                      stage.setScene(new Scene(root, 700, 500));
@@ -70,7 +68,7 @@ public class Controller {
 
         displayAll.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayAllMed.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/displayAllMed.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("All medicine");
@@ -83,7 +81,7 @@ public class Controller {
 
         deleteDrug.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("deleteMedicine.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/deleteMedicine.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Delete medicine");
@@ -96,7 +94,7 @@ public class Controller {
 
         displayInPackageMoreThan100.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayPackageMoreThan100.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/displayPackageMoreThan100.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Medicine in a package more than 100");
@@ -109,7 +107,7 @@ public class Controller {
 
         displayByPharmacyNumber.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayByPharmNumber.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/displayByPharmNumber.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Finding a pharmacy by number");
@@ -122,7 +120,7 @@ public class Controller {
 
         addCustomer.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addCustomer.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/addCustomer.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Adding customer");
@@ -135,7 +133,7 @@ public class Controller {
 
         deleteCustomer.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("deleteCustomer.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/deleteCustomer.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Deleting customer");
@@ -148,7 +146,7 @@ public class Controller {
 
         displayCustomers.setOnAction(event -> {
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("displayAllCustomers.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmlFiles/displayAllCustomers.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("All customers");
@@ -157,14 +155,6 @@ public class Controller {
             }catch (Exception e) {
                 e.printStackTrace();
             }
-        });
-
-        saveChanges.setOnAction(event -> {
-            IOClass write = new IOClass();
-            write.saveFile(database, "database.data");
-
-            IOClass writeCustomers = new IOClass();
-            writeCustomers.saveFile(customersDatabase, "customersDatabase.data");
         });
     }
 }

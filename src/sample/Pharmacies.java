@@ -21,13 +21,15 @@ public class Pharmacies implements Serializable {
         dataBase.add(pharmacy);
     }
 
-    public void removeDrug(String drugName, int pharmacyNumber) {
+    public boolean removeDrug(String drugName, int pharmacyNumber) {
+        boolean result = false;
         for (int i = 0; i < dataBase.size();  i++) {
             if (dataBase.get(i).getDrugName().equals(drugName) && dataBase.get(i).getPharmacyNumber() == pharmacyNumber) {
                 dataBase.remove(i);
-                break;
+                result = true;
             }
         }
+        return result;
     }
 
     public void deleteAllExpiredDrugs () {
@@ -42,28 +44,6 @@ public class Pharmacies implements Serializable {
             if (diff >= dataBase.get(i).getShelfLife()) {
                 dataBase.remove(i);
             }
-        }
-    }
-
-    public void displayInPackageMoreThan100 () {
-        for (Pharmacy pharmacy: dataBase) {
-            if (pharmacy.getInPackage() >= 100) {
-                System.out.println(pharmacy.getDrugName());
-            }
-        }
-    }
-
-    public void displayPharmacyByNumber (int storeNumber) {
-        for (Pharmacy pharmacy: dataBase) {
-            if (storeNumber == pharmacy.getPharmacyNumber()) {
-                System.out.println(pharmacy);
-            }
-        }
-    }
-
-    public void displayAllDrugs () {
-        for (Pharmacy pharmacy: dataBase) {
-            System.out.println(pharmacy);
         }
     }
 
